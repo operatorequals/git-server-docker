@@ -1,6 +1,6 @@
-FROM alpine:3.4
+FROM python:3.7-alpine3.8
 
-MAINTAINER Carlos Bernárdez "carlos@z4studios.com"
+MAINTAINER John Torakis "john.torakis@gmail.com"
 
 # "--no-cache" is new in Alpine 3.3 and it avoid using
 # "--update + rm -rf /var/cache/apk/*" (to remove cache)
@@ -8,7 +8,10 @@ RUN apk add --no-cache \
 # openssh=7.2_p2-r1 \
   openssh \
 # git=2.8.3-r0
-  git
+  git \
+  rm -f /var/cache/apk/*
+
+RUN python -m pip install GitPython
 
 # Key generation on the server
 RUN ssh-keygen -A
