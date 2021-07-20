@@ -14,7 +14,7 @@ RUN apk add --no-cache \
 RUN python -m pip install GitPython
 
 # Key generation on the server
-RUN ssh-keygen -A
+# RUN ssh-keygen -A
 
 # SSH autorun
 # RUN rc-update add sshd
